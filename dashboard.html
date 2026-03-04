@@ -1,179 +1,168 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-<title>لوحة مشاريع بصر</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>لوحة الأعضاء - بصر</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+<header class="site-header">
+  <nav class="nav container">
+    <div class="logo">بصر</div>
+
+    <ul class="nav-links" style="display:flex;">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="dashboard.html">لوحة الأعضاء</a></li>
+      <li><a href="#" onclick="logout()">تسجيل خروج</a></li>
+    </ul>
+  </nav>
+</header>
+
 <section class="section">
+  <div class="container">
 
-<div class="container">
+    <div class="section-head">
+      <h2>لوحة الأعضاء</h2>
+      <p class="muted">إضافة تحديثات المشاريع ومشاهدة آخر التحديثات تلقائيًا</p>
+    </div>
 
-<div class="section-head">
+    <div class="grid-2">
 
-<h2>لوحة تحديث المشاريع</h2>
+      <!-- Add Update -->
+      <div class="card">
+        <h3>إضافة تحديث جديد</h3>
 
-<p class="muted">
-هنا يمكن لأعضاء بصر إضافة تحديثات مشاريعهم
-</p>
+        <label>اسم العضو</label>
+        <input id="name" type="text" placeholder="مثال: أحمد"
+          style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;" />
 
-</div>
+        <label>اسم المشروع</label>
+        <input id="project" type="text" placeholder="مثال: منصة بصر"
+          style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;" />
 
+        <label>التحديث</label>
+        <textarea id="update" rows="6" placeholder="اكتب تحديث المشروع..."
+          style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;"></textarea>
 
-<div class="grid-2">
+        <button class="btn" style="width:100%;" onclick="sendUpdate()">حفظ التحديث</button>
+        <p id="status" class="muted" style="margin-top:12px;"></p>
+      </div>
 
+      <!-- Show Updates -->
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;">
+          <h3 style="margin:0;">آخر التحديثات</h3>
+          <button class="btn btn-outline" style="padding:8px 14px;" onclick="loadUpdates()">تحديث</button>
+        </div>
 
-<div class="card">
+        <div class="divider"></div>
 
-<h3>إضافة تحديث</h3>
+        <ul id="list" style="padding-right:18px;margin:0;"></ul>
 
-<label>الاسم</label>
+        <p class="muted" style="margin-top:12px;font-size:13px;">
+          يتم جلب البيانات مباشرة من Google Sheets عبر SheetDB.
+        </p>
+      </div>
 
-<input id="name" type="text" placeholder="اكتب اسمك"
-style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:10px 0;">
+    </div>
 
-<label>اسم المشروع</label>
-
-<input id="project" type="text" placeholder="اكتب اسم المشروع"
-style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:10px 0;">
-
-<label>تحديث المشروع</label>
-
-<textarea id="update" rows="6" placeholder="اكتب التحديث هنا"
-style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;"></textarea>
-
-<button class="btn" style="width:100%;" onclick="sendUpdate()">
-حفظ التحديث
-</button>
-
-<p id="status" class="muted" style="margin-top:10px;"></p>
-
-</div>
-
-
-<div class="card">
-
-<h3>آخر التحديثات</h3>
-
-<button class="btn btn-outline" style="width:100%;margin-bottom:10px;" onclick="loadUpdates()">
-تحديث القائمة
-</button>
-
-<ul id="list" style="padding-right:20px;"></ul>
-
-</div>
-
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-
 <script>
-
-/* حماية الصفحة */
-
-if(localStorage.getItem("basar_logged")!=="yes"){
-
-window.location.href="login.html";
-
+// حماية الصفحة
+if(localStorage.getItem("basar_logged") !== "yes"){
+  window.location.href = "login.html";
 }
 
+function logout(){
+  localStorage.removeItem("basar_logged");
+  window.location.href = "login.html";
+}
 
-/* رابط SheetDB */
-
-const API_URL="https://sheetdb.io/api/v1/yif5p1hj2cn27";
-
+// SheetDB API
+const API_URL = "https://sheetdb.io/api/v1/yif5p1hj2cn27";
 
 async function sendUpdate(){
+  const name = document.getElementById("name").value.trim();
+  const project = document.getElementById("project").value.trim();
+  const update = document.getElementById("update").value.trim();
+  const status = document.getElementById("status");
 
-const name=document.getElementById("name").value.trim();
-const project=document.getElementById("project").value.trim();
-const update=document.getElementById("update").value.trim();
-const status=document.getElementById("status");
+  if(!name || !project || !update){
+    status.textContent = "رجاءً عبّئ كل الحقول.";
+    return;
+  }
 
-if(!name||!project||!update){
+  status.textContent = "جاري الحفظ...";
 
-status.innerText="رجاءً عبّئ كل الحقول";
+  try{
+    const payload = {
+      data: [{
+        name,
+        project,
+        update,
+        date: new Date().toLocaleString("ar-SA")
+      }]
+    };
 
-return;
+    const res = await fetch(API_URL, {
+      method:"POST",
+      headers:{ "Content-Type":"application/json" },
+      body: JSON.stringify(payload)
+    });
 
+    if(!res.ok) throw new Error("POST failed");
+
+    status.textContent = "تم حفظ التحديث ✅";
+    document.getElementById("update").value = "";
+
+    await loadUpdates();
+  }catch(e){
+    status.textContent = "حدث خطأ أثناء الحفظ. تأكد من الأعمدة في Google Sheet.";
+  }
 }
-
-status.innerText="جاري الحفظ...";
-
-
-const data={
-data:[
-{
-name:name,
-project:project,
-update:update,
-date:new Date().toLocaleDateString()
-}
-]
-};
-
-
-await fetch(API_URL,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-});
-
-status.innerText="تم حفظ التحديث ✅";
-
-document.getElementById("update").value="";
-
-loadUpdates();
-
-}
-
-
 
 async function loadUpdates(){
+  const list = document.getElementById("list");
+  list.innerHTML = "<li>جاري التحميل...</li>";
 
-const list=document.getElementById("list");
+  try{
+    const res = await fetch(API_URL);
+    const rows = await res.json();
 
-list.innerHTML="جاري التحميل...";
+    if(!Array.isArray(rows) || rows.length === 0){
+      list.innerHTML = "<li>لا توجد تحديثات بعد.</li>";
+      return;
+    }
 
+    // آخر 12 تحديث (الأحدث أولاً)
+    const last = rows.slice(-12).reverse();
 
-const response=await fetch(API_URL);
+    list.innerHTML = "";
+    last.forEach(r => {
+      const li = document.createElement("li");
+      li.style.marginBottom = "10px";
+      li.innerHTML = `
+        <strong>${r.name || "عضو"}</strong>
+        — <span class="muted">${r.project || "مشروع"}</span><br>
+        ${r.update || ""}<br>
+        <span class="muted" style="font-size:12px;">${r.date || ""}</span>
+      `;
+      list.appendChild(li);
+    });
 
-const data=await response.json();
-
-
-list.innerHTML="";
-
-
-data.reverse().slice(0,10).forEach(item=>{
-
-const li=document.createElement("li");
-
-li.innerText=item.name+" - "+item.project+" : "+item.update;
-
-list.appendChild(li);
-
-});
-
+  }catch(e){
+    list.innerHTML = "<li>تعذر تحميل التحديثات.</li>";
+  }
 }
 
-
+// تحميل تلقائي عند فتح الصفحة + تحديث كل 20 ثانية
 loadUpdates();
-
+setInterval(loadUpdates, 20000);
 </script>
 
 </body>
