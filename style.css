@@ -1,0 +1,13 @@
+body { font-family: 'Cairo', sans-serif; margin: 0; line-height: 1.6; text-align: right; background-color: #f9f9f9; }
+header { background: #1a2a6c; color: #fff; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+nav { display: flex; justify-content: space-around; align-items: center; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin: 0 15px; }
+nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
+.hero { height: 70vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #fff; padding-top: 60px; }
+.btn { background: #f2a365; color: #fff; padding: 10px 25px; text-decoration: none; border-radius: 30px; margin-top: 20px; transition: 0.3s; }
+.btn:hover { background: #e08e45; }
+.content-section, .services { padding: 80px 20px; text-align: center; }
+.service-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+.card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); width: 200px; }
+footer { background: #1a2a6c; color: #fff; text-align: center; padding: 20px 0; margin-top: 50px; }
