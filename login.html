@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>تسجيل الدخول - بصر</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>تسجيل دخول أعضاء بصر</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<section class="login-page">
+<section class="section">
+  <div class="container">
 
-<div class="login-card">
+    <div class="section-head">
+      <h2>تسجيل دخول أعضاء بصر</h2>
+      <p class="muted">الرجاء إدخال كلمة المرور الخاصة بالأعضاء</p>
+    </div>
 
-<h2>تسجيل دخول أعضاء بصر</h2>
+    <div class="card" style="max-width:520px;margin:0 auto;">
 
-<input id="username" type="text" placeholder="اسم المستخدم">
+      <label>كلمة المرور</label>
+      <input
+        id="pass"
+        type="password"
+        placeholder="اكتب كلمة المرور"
+        style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;"
+      />
 
-<input id="password" type="password" placeholder="كلمة المرور">
+      <button class="btn" style="width:100%;" onclick="login()">تسجيل الدخول</button>
 
-<button onclick="login()">تسجيل الدخول</button>
+      <p id="msg" class="muted" style="margin-top:12px;"></p>
 
-<p id="error"></p>
+      <div class="divider"></div>
 
-</div>
+      <a href="index.html" class="to-top" style="display:inline-block;color:#1a2a6c;text-decoration:none;font-weight:bold;">
+        العودة للصفحة الرئيسية
+      </a>
 
+    </div>
+
+  </div>
 </section>
 
 <script>
-
 function login(){
+  const pass = document.getElementById("pass").value.trim();
+  const msg = document.getElementById("msg");
 
-let username=document.getElementById("username").value;
-let password=document.getElementById("password").value;
+  // ✅ غيّر كلمة المرور هنا لما تريد
+  const MEMBER_PASSWORD = "BASAR123";
 
-if(username==="basar" && password==="1234"){
-
-window.location.href="dashboard.html";
-
-}else{
-
-document.getElementById("error").innerText="بيانات الدخول غير صحيحة";
-
+  if(pass === MEMBER_PASSWORD){
+    localStorage.setItem("basar_logged","yes");
+    window.location.href = "dashboard.html";
+  } else {
+    msg.textContent = "بيانات الدخول غير صحيحة";
+  }
 }
-
-}
-
 </script>
 
 </body>
-
 </html>
