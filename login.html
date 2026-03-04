@@ -9,6 +9,15 @@
 
 <body>
 
+<header class="site-header">
+  <nav class="nav container">
+    <div class="logo">بصر</div>
+    <ul class="nav-links" style="display:flex;">
+      <li><a href="index.html">العودة للموقع</a></li>
+    </ul>
+  </nav>
+</header>
+
 <section class="section">
   <div class="container">
 
@@ -18,14 +27,9 @@
     </div>
 
     <div class="card" style="max-width:520px;margin:0 auto;">
-
       <label>كلمة المرور</label>
-      <input
-        id="pass"
-        type="password"
-        placeholder="اكتب كلمة المرور"
-        style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;"
-      />
+      <input id="pass" type="password" placeholder="اكتب كلمة المرور"
+        style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;" />
 
       <button class="btn" style="width:100%;" onclick="login()">تسجيل الدخول</button>
 
@@ -33,10 +37,9 @@
 
       <div class="divider"></div>
 
-      <a href="index.html" class="to-top" style="display:inline-block;color:#1a2a6c;text-decoration:none;font-weight:bold;">
-        العودة للصفحة الرئيسية
-      </a>
-
+      <p class="muted" style="margin:0;">
+        ملاحظة: هذه صفحة داخلية لأعضاء بصر لمتابعة المشاريع.
+      </p>
     </div>
 
   </div>
@@ -47,14 +50,14 @@ function login(){
   const pass = document.getElementById("pass").value.trim();
   const msg = document.getElementById("msg");
 
-  // ✅ غيّر كلمة المرور هنا لما تريد
+  // ✅ غيّر كلمة المرور هنا
   const MEMBER_PASSWORD = "BASAR123";
 
   if(pass === MEMBER_PASSWORD){
     localStorage.setItem("basar_logged","yes");
     window.location.href = "dashboard.html";
   } else {
-    msg.textContent = "بيانات الدخول غير صحيحة";
+    msg.textContent = "كلمة المرور غير صحيحة";
   }
 }
 </script>
