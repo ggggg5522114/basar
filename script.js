@@ -16,7 +16,7 @@ navLinks?.addEventListener("click", (e) => {
   }
 });
 
-// Reveal on scroll (animations)
+// Reveal on scroll
 const reveals = document.querySelectorAll(".reveal");
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -26,7 +26,7 @@ const io = new IntersectionObserver((entries) => {
 
 reveals.forEach(el => io.observe(el));
 
-// Contact form: open mail client (no server needed)
+// Contact form: open mail client
 const form = document.getElementById("contactForm");
 form?.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -35,11 +35,10 @@ form?.addEventListener("submit", (e) => {
   const email = form.querySelector('[name="email"]').value.trim();
   const message = form.querySelector('[name="message"]').value.trim();
 
-  const subject = encodeURIComponent(`رسالة من موقع بصر - ${name}`);
+  const subject = encodeURIComponent(`Message from Basar Website - ${name}`);
   const body = encodeURIComponent(
-    `الاسم: ${name}\nالبريد: ${email}\n\nالرسالة:\n${message}`
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
   );
 
-  // غيّر البريد إلى بريدكم الحقيقي
   window.location.href = `mailto:info@basar.com?subject=${subject}&body=${body}`;
 });
