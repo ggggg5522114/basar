@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>شركة بصر الطلابية</title>
+  <title>Basar Student Company</title>
 
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (Social Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
   <!-- Header -->
   <header class="site-header">
-    <nav class="nav">
-      <a class="logo" href="#home" aria-label="بصر">بصر</a>
+    <nav class="nav container">
+      <a class="logo" href="#home" aria-label="Basar">Basar</a>
 
-      <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة" aria-expanded="false">
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
@@ -25,32 +28,31 @@
         <li><a href="#services">مجالاتنا</a></li>
         <li><a href="#projects">المشاريع</a></li>
         <li><a href="#team">الفريق</a></li>
-        <li><a href="#faq">الأسئلة الشائعة</a></li>
-        <li><a class="btn btn-small" href="#contact">تواصل</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero -->
   <section id="home" class="hero">
-    <div class="hero-inner reveal">
-      <p class="badge">شركة طلابية • ابتكار • أثر</p>
-      <h1>بصر — نرى الفكرة… ونحوّلها لأثر</h1>
+    <div class="container hero-inner reveal">
+      <p class="badge">Student Company • Innovation • Impact</p>
+      <h1>Basar — We See Ideas, We Build Impact</h1>
       <p class="hero-sub">
-        شركة طلابية تسعى لربط المعرفة الأكاديمية بالتطبيق العملي عبر مشاريع وشراكات مبتكرة تخدم الطلاب والمجتمع.
+        شركة طلابية تربط المعرفة الأكاديمية بالتطبيق العملي عبر مشاريع وشراكات تخدم المجتمع.
       </p>
 
       <div class="hero-actions">
         <a class="btn" href="#about">تعرف علينا</a>
-        <a class="btn btn-outline" href="#contact">ابدأ التعاون</a>
+        <a class="btn btn-outline" href="#contact">تواصل الآن</a>
       </div>
 
+      <!-- Stats (Only Members) -->
       <div class="stats">
         <div class="stat">
-          <strong>+4</strong>
-          <span>أعضاء</span>
+          <strong>8</strong>
+          <span>Members</span>
         </div>
-        
       </div>
     </div>
   </section>
@@ -60,45 +62,23 @@
     <div class="container">
       <div class="section-head reveal">
         <h2>عن بصر</h2>
-        <p class="muted">
-          نؤمن أن أفضل الأفكار تولد عندما يلتقي الشغف بالعلم… ثم تتحول إلى تطبيق حقيقي.
-        </p>
+        <p class="muted">نؤمن أن أفضل الأفكار تتحول لقيمة عندما تُنفّذ بوضوح وبأثر.</p>
       </div>
 
       <div class="grid-2">
         <div class="card reveal">
           <h3>من نحن؟</h3>
           <p class="muted">
-            نحن فريق طلابي يعمل على تقديم حلول ومبادرات تربط الطلاب والأكاديميين والقطاع الخاص،
-            مع التركيز على الجودة والابتكار والالتزام.
+            فريق طلابي يعمل على تقديم مبادرات ومشاريع تطبيقية تربط الطلاب والأكاديميين والقطاع.
           </p>
         </div>
 
         <div class="card reveal">
-          <h3>رؤيتنا</h3>
-          <p class="muted">أن نكون منصة طلابية رائدة تدعم الابتكار وتربط المعرفة بالتطبيق لصناعة أثر ملموس.</p>
+          <h3>Vision</h3>
+          <p class="muted">To become a leading student platform that turns knowledge into real-world impact.</p>
           <div class="divider"></div>
-          <h3>رسالتنا</h3>
-          <p class="muted">تمكين الطلاب وبناء شراكات مع الأكاديميين والجهات المختلفة لتنفيذ مشاريع ذات قيمة.</p>
-        </div>
-      </div>
-
-      <div class="values reveal">
-        <div class="value">
-          <h4>الإتقان</h4>
-          <p class="muted">نركز على جودة التنفيذ ووضوح النتائج.</p>
-        </div>
-        <div class="value">
-          <h4>الابتكار</h4>
-          <p class="muted">نحوّل الأفكار إلى حلول قابلة للتطبيق.</p>
-        </div>
-        <div class="value">
-          <h4>التعاون</h4>
-          <p class="muted">نعمل بروح الفريق مع شركائنا.</p>
-        </div>
-        <div class="value">
-          <h4>الالتزام</h4>
-          <p class="muted">مواعيد واضحة وتواصل مستمر.</p>
+          <h3>Mission</h3>
+          <p class="muted">Empowering students and building partnerships to deliver valuable projects.</p>
         </div>
       </div>
     </div>
@@ -109,21 +89,21 @@
     <div class="container">
       <div class="section-head reveal">
         <h2>مجالاتنا</h2>
-        <p class="muted">نبني جسور تعاون بين الطلاب والأكاديميين والشركات من خلال مبادرات ومشاريع متنوعة.</p>
+        <p class="muted">نقدّم مجالات عمل تساعد على تطوير المهارات وتنفيذ حلول قابلة للتطبيق.</p>
       </div>
 
       <div class="cards">
         <div class="card reveal">
-          <h3>تمكين الطلاب</h3>
-          <p class="muted">ورش، مشاريع تطبيقية، تطوير مهارات، وتجارب عملية.</p>
+          <h3>Student Empowerment</h3>
+          <p class="muted">Workshops, skill-building, and hands-on learning experiences.</p>
         </div>
         <div class="card reveal">
-          <h3>تجسير البحث والتطبيق</h3>
-          <p class="muted">تحويل مخرجات البحث إلى نماذج وحلول قابلة للتطبيق.</p>
+          <h3>Research to Practice</h3>
+          <p class="muted">Turning academic ideas into prototypes and measurable results.</p>
         </div>
         <div class="card reveal">
-          <h3>شراكات مع القطاع</h3>
-          <p class="muted">مشاريع مشتركة، تحديات ابتكار، وفرص تعاون مفيدة للطرفين.</p>
+          <h3>Industry Partnerships</h3>
+          <p class="muted">Collaborations with organizations through innovation challenges.</p>
         </div>
       </div>
     </div>
@@ -134,137 +114,115 @@
     <div class="container">
       <div class="section-head reveal">
         <h2>المشاريع</h2>
-        <p class="muted">نماذج لأعمال/مبادرات (عدّل العناوين والوصف حسب مشروعكم الحقيقي).</p>
+        <p class="muted">نماذج (عدّل المحتوى حسب مشاريعكم).</p>
       </div>
 
       <div class="projects">
-        <article class="project reveal">
-          <div class="project-tag">مبادرة</div>
-          <h3>برنامج تطوير المهارات</h3>
-          <p class="muted">سلسلة ورش مكثفة لتحسين مهارات الطلاب العملية وربطها بسوق العمل.</p>
+        <article class="project card reveal">
+          <div class="project-tag">Project</div>
+          <h3>Skills Program</h3>
+          <p class="muted">A set of workshops designed to improve students’ practical skills.</p>
         </article>
 
-        <article class="project reveal">
-          <div class="project-tag">مشروع</div>
-          <h3>تحدّي ابتكار مع جهة</h3>
-          <p class="muted">تعاون لتنفيذ فكرة أو نموذج أولي (Prototype) لحل مشكلة واقعية.</p>
+        <article class="project card reveal">
+          <div class="project-tag">Prototype</div>
+          <h3>Innovation Challenge</h3>
+          <p class="muted">Building a prototype solution for a real-world problem.</p>
         </article>
 
-        <article class="project reveal">
-          <div class="project-tag">شراكة</div>
-          <h3>تعاون أكاديمي تطبيقي</h3>
-          <p class="muted">تحويل فكرة بحثية إلى تطبيق أو تجربة قابلة للقياس.</p>
+        <article class="project card reveal">
+          <div class="project-tag">Collaboration</div>
+          <h3>Academic Collaboration</h3>
+          <p class="muted">Supporting a research idea to reach an applied outcome.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Team -->
+  <!-- Team (with Photos) -->
   <section id="team" class="section section-alt">
     <div class="container">
       <div class="section-head reveal">
         <h2>الفريق</h2>
-        <p class="muted">ضع أسماء أعضاء الفريق والأدوار (يمكن لاحقًا إضافة صور).</p>
+        <p class="muted">ضع صور وأسماء أعضاء الفريق (يمكنك تغيير الصور لاحقاً).</p>
       </div>
 
       <div class="team">
         <div class="member card reveal">
-          <h3>اسم العضو</h3>
-          <p class="muted">المنصب/الدور (مثال: قائد الفريق)</p>
+          <img class="avatar" src="https://i.pravatar.cc/200?img=12" alt="Team Member" />
+          <h3>Member Name</h3>
+          <p class="muted">Team Lead</p>
         </div>
+
         <div class="member card reveal">
-          <h3>اسم العضو</h3>
-          <p class="muted">المنصب/الدور (مثال: مسؤول العلاقات)</p>
+          <img class="avatar" src="https://i.pravatar.cc/200?img=32" alt="Team Member" />
+          <h3>Member Name</h3>
+          <p class="muted">Projects</p>
         </div>
+
         <div class="member card reveal">
-          <h3>اسم العضو</h3>
-          <p class="muted">المنصب/الدور (مثال: مسؤول المشاريع)</p>
+          <img class="avatar" src="https://i.pravatar.cc/200?img=45" alt="Team Member" />
+          <h3>Member Name</h3>
+          <p class="muted">Marketing</p>
         </div>
+
         <div class="member card reveal">
-          <h3>اسم العضو</h3>
-          <p class="muted">المنصب/الدور (مثال: مسؤول المحتوى)</p>
+          <img class="avatar" src="https://i.pravatar.cc/200?img=22" alt="Team Member" />
+          <h3>Member Name</h3>
+          <p class="muted">Partnerships</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>الأسئلة الشائعة</h2>
-        <p class="muted">إجابات مختصرة لتوضيح آلية التعاون.</p>
-      </div>
-
-      <div class="faq">
-        <details class="card reveal">
-          <summary>كيف نتعاون مع بصر؟</summary>
-          <p class="muted">ابدأ بإرسال رسالة عبر نموذج التواصل، وسنرتّب اجتماعًا قصيرًا لتحديد الهدف والخطة.</p>
-        </details>
-
-        <details class="card reveal">
-          <summary>هل تقدمون خدمات مدفوعة؟</summary>
-          <p class="muted">حسب نوع المشروع والجهة. بعض المبادرات تطوعية وبعضها بشراكات. يتم توضيح ذلك من البداية.</p>
-        </details>
-
-        <details class="card reveal">
-          <summary>كم مدة تنفيذ المشروع؟</summary>
-          <p class="muted">تختلف حسب النطاق، لكن غالبًا نحدد جدولًا واضحًا بمراحل وتسليمات.</p>
-        </details>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section section-alt">
+  <section id="contact" class="section">
     <div class="container">
       <div class="section-head reveal">
         <h2>تواصل معنا</h2>
-        <p class="muted">راسلنا وسنعود لك بأقرب وقت.</p>
+        <p class="muted">تابعنا أو راسلنا بسهولة.</p>
       </div>
 
       <div class="contact-grid">
         <div class="card reveal">
-          <h3>معلومات التواصل</h3>
-          <p class="muted">البريد: <a href="mailto:info@basar.com">info@basar.com</a></p>
-          <p class="muted">الهاتف: <a href="tel:+966500000000">+966 50 000 0000</a></p>
-          <p class="muted">إنستغرام/إكس: <a href="#" target="_blank" rel="noreferrer">@basar</a></p>
+          <h3>Contact Info</h3>
+          <p class="muted">Email: <a href="mailto:info@basar.com">info@basar.com</a></p>
+          <p class="muted">Phone: <a href="tel:+966500000000">+966 50 000 0000</a></p>
+
           <div class="divider"></div>
-          <p class="muted small">ملاحظة: عدّل البيانات أعلاه إلى بياناتكم الحقيقية.</p>
+
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/" target="_blank" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://wa.me/966500000000" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
         </div>
 
         <form class="card contact-form reveal" id="contactForm">
-          <label>الاسم</label>
-          <input name="name" type="text" placeholder="اكتب اسمك" required />
+          <label>Name</label>
+          <input name="name" type="text" placeholder="Your name" required />
 
-          <label>البريد الإلكتروني</label>
-          <input name="email" type="email" placeholder="example@email.com" required />
+          <label>Email</label>
+          <input name="email" type="email" placeholder="your@email.com" required />
 
-          <label>رسالتك</label>
-          <textarea name="message" rows="5" placeholder="اكتب رسالتك هنا..." required></textarea>
+          <label>Message</label>
+          <textarea name="message" rows="5" placeholder="Write your message..." required></textarea>
 
-          <button class="btn" type="submit">إرسال</button>
-          <p class="muted small">سيتم فتح البريد لإرسال الرسالة (بدون سيرفر). يمكن ربطه لاحقًا بـ Google Forms.</p>
+          <button class="btn" type="submit">Send</button>
+          <p class="muted small">This will open your email client (no server required).</p>
         </form>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-  <div class="container footer-inner">
-
-    <div class="social-links">
-      <a href="https://instagram.com/basar" target="_blank">Instagram</a>
-      <a href="https://twitter.com/basar" target="_blank">X</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <div class="container footer-inner">
+      <p>© 2026 Basar Student Company</p>
+      <a class="to-top" href="#home">↑ Top</a>
     </div>
-
-    <p>جميع الحقوق محفوظة © 2026 — شركة بصر الطلابية</p>
-
-    <a class="to-top" href="#home">↑ للأعلى</a>
-
-  </div>
-</footer>
+  </footer>
 
   <script src="script.js"></script>
 </body>
