@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>لوحة الأعضاء</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<section class="dashboard">
+
+<h1>لوحة مشاريع أعضاء بصر</h1>
+
+<textarea id="project" placeholder="اكتب تقدم مشروعك هنا"></textarea>
+
+<button onclick="saveProject()">حفظ</button>
+
+<h3>آخر تحديث:</h3>
+
+<p id="savedProject"></p>
+
+</section>
+
+<script>
+
+function saveProject(){
+
+let text=document.getElementById("project").value;
+
+localStorage.setItem("projectUpdate",text);
+
+document.getElementById("savedProject").innerText=text;
+
+}
+
+document.getElementById("savedProject").innerText=
+localStorage.getItem("projectUpdate");
+
+</script>
+
+</body>
+
+</html>
