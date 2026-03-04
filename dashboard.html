@@ -1,50 +1,130 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>لوحة الأعضاء</title>
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>لوحة المشاريع - بصر</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<section class="dashboard">
+<section class="section">
+  <div class="container">
 
-<h1>لوحة مشاريع أعضاء بصر</h1>
+    <div class="section-head">
+      <h2>لوحة تحديث المشاريع</h2>
+      <p class="muted">اكتب تحديث مشروعك وسيتم حفظه في Google Sheet.</p>
+    </div>
 
-<textarea id="project" placeholder="اكتب تقدم مشروعك هنا"></textarea>
+    <div class="grid-2">
 
-<button onclick="saveProject()">حفظ</button>
+      <div class="card">
+        <h3>إضافة تحديث</h3>
 
-<h3>آخر تحديث:</h3>
+        <label>الاسم</label>
+        <input id="name" type="text" placeholder="اكتب اسمك" style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:10px 0;">
 
-<p id="savedProject"></p>
+        <label>اسم المشروع</label>
+        <input id="project" type="text" placeholder="اكتب اسم المشروع" style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:10px 0;">
 
+        <label>تحديث المشروع</label>
+        <textarea id="update" rows="6" placeholder="اكتب التحديث هنا..." style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;"></textarea>
+
+        <button class="btn" style="width:100%;" onclick="sendUpdate()">حفظ التحديث</button>
+        <p id="status" class="muted" style="margin-top:10px;"></p>
+      </div>
+
+      <div class="card">
+        <h3>آخر التحديثات</h3>
+        <button class="btn btn-outline" style="width:100%;margin-bottom:10px;" onclick="loadUpdates()">تحديث القائمة</button>
+        <ul id="list" style="padding-right:18px;"></ul>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
 <script>
-
-function saveProject(){
-
-let text=document.getElementById("project").value;
-
-localStorage.setItem("projectUpdate",text);
-
-document.getElementById("savedProject").innerText=text;
-
+/* Simple protection */
+if (localStorage.getItem("basar_logged") !== "yes") {
+  window.location.href = "login.html";
 }
 
-document.getElementById("savedProject").innerText=
-localStorage.getItem("projectUpdate");
+/* Your SheetDB API */
+const API_URL = "https://sheetdb.io/api/v1/yif5p1hj2cn27";
 
+async function sendUpdate() {
+  const name = document.getElementById("name").value.trim();
+  const project = document.getElementById("project").value.trim();
+  const update = document.getElementById("update").value.trim();
+  const status = document.getElementById("status");
+
+  if (!name || !project || !update) {
+    status.textContent = "رجاءً عبّئ كل الحقول.";
+    return;
+  }
+
+  status.textContent = "جاري الحفظ...";
+
+  try {
+    const payload = {
+      data: [
+        {
+          name: name,
+          project: project,
+          update: update,
+          date: new Date().toISOString()
+        }
+      ]
+    };
+
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) throw new Error("Request failed");
+
+    status.textContent = "تم حفظ التحديث ✅";
+    document.getElementById("update").value = "";
+    await loadUpdates();
+  } catch (e) {
+    status.textContent = "تعذر الحفظ. تأكد أن SheetDB متصل بالـ Sheet وأن الأعمدة صحيحة.";
+  }
+}
+
+async function loadUpdates() {
+  const list = document.getElementById("list");
+  list.innerHTML = "<li>جاري التحميل...</li>";
+
+  try {
+    const res = await fetch(API_URL); // GET rows
+    const rows = await res.json();
+
+    if (!Array.isArray(rows) || rows.length === 0) {
+      list.innerHTML = "<li>لا توجد تحديثات بعد.</li>";
+      return;
+    }
+
+    // show last 10 updates (latest at bottom depends on sheet order)
+    const last = rows.slice(-10).reverse();
+
+    list.innerHTML = "";
+    last.forEach(r => {
+      const li = document.createElement("li");
+      li.textContent = `${r.name || "عضو"} — ${r.project || "مشروع"}: ${r.update || ""}`;
+      list.appendChild(li);
+    });
+  } catch (e) {
+    list.innerHTML = "<li>تعذر تحميل التحديثات.</li>";
+  }
+}
+
+window.addEventListener("load", loadUpdates);
 </script>
 
 </body>
-
 </html>
