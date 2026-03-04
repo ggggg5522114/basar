@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تسجيل الدخول - بصر</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<section class="login-page">
+
+<div class="login-card">
+
+<h2>تسجيل دخول أعضاء بصر</h2>
+
+<input id="username" type="text" placeholder="اسم المستخدم">
+
+<input id="password" type="password" placeholder="كلمة المرور">
+
+<button onclick="login()">تسجيل الدخول</button>
+
+<p id="error"></p>
+
+</div>
+
+</section>
+
+<script>
+
+function login(){
+
+let username=document.getElementById("username").value;
+let password=document.getElementById("password").value;
+
+if(username==="basar" && password==="1234"){
+
+window.location.href="dashboard.html";
+
+}else{
+
+document.getElementById("error").innerText="بيانات الدخول غير صحيحة";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
