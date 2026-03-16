@@ -1,19 +1,20 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>لوحة الأعضاء - بصر</title>
+  <title>لوحة الأعضاء | بصر</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header class="site-header">
   <nav class="nav container">
-    <div class="logo">بصر</div>
-
-    <ul class="nav-links">
+    <a href="index.html" class="logo">بصر</a>
+    <button id="menuBtn" class="menu-btn" type="button"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="dashboard.html">لوحة الأعضاء</a></li>
       <li><a href="#" onclick="logout()">تسجيل خروج</a></li>
@@ -23,16 +24,14 @@
 
 <section class="section dashboard-section">
   <div class="container">
-
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="section-label">بوابة الأعضاء</span>
       <h2>لوحة الأعضاء</h2>
       <p class="muted">إضافة تحديثات المشاريع ومشاهدة آخر المستجدات</p>
     </div>
 
-    <div class="grid-2 dashboard-grid">
-
-      <div class="card dashboard-card">
+    <div class="dashboard-grid">
+      <div class="card dashboard-card reveal">
         <h3>إضافة تحديث جديد</h3>
 
         <label for="name">اسم العضو</label>
@@ -44,131 +43,26 @@
         <label for="update">التحديث</label>
         <textarea id="update" rows="6" placeholder="اكتب تحديث المشروع..."></textarea>
 
-        <button class="btn full-btn" onclick="sendUpdate()">حفظ التحديث</button>
+        <button class="btn full-btn" type="button" onclick="sendUpdate()">حفظ التحديث</button>
         <p id="status" class="dashboard-status muted"></p>
       </div>
 
-      <div class="card dashboard-card">
+      <div class="card dashboard-card reveal">
         <div class="dashboard-header-row">
           <h3>آخر التحديثات</h3>
-          <button class="btn btn-light small-btn" onclick="loadUpdates()">تحديث</button>
+          <button class="btn btn-light small-btn" type="button" onclick="loadUpdates()">تحديث</button>
         </div>
 
         <div class="divider"></div>
-
         <div id="list" class="updates-list">
           <p class="muted">جاري التحميل...</p>
         </div>
-
-        <p class="muted dashboard-note">
-          يتم جلب البيانات مباشرة من Google Sheets عبر SheetDB.
-        </p>
       </div>
-
     </div>
-
   </div>
 </section>
 
-<script>
-if (localStorage.getItem("basar_logged") !== "yes") {
-  window.location.href = "login.html";
-}
-
-function logout() {
-  localStorage.removeItem("basar_logged");
-  window.location.href = "login.html";
-}
-
-const API_URL = "https://sheetdb.io/api/v1/yif5p1hj2cn27";
-
-async function sendUpdate() {
-  const name = document.getElementById("name").value.trim();
-  const project = document.getElementById("project").value.trim();
-  const update = document.getElementById("update").value.trim();
-  const status = document.getElementById("status");
-
-  if (!name || !project || !update) {
-    status.textContent = "رجاءً عبّئ جميع الحقول.";
-    status.className = "dashboard-status error-msg";
-    return;
-  }
-
-  status.textContent = "جاري الحفظ...";
-  status.className = "dashboard-status muted";
-
-  try {
-    const payload = {
-      data: [{
-        name,
-        project,
-        update,
-        date: new Date().toLocaleString("ar-SA")
-      }]
-    };
-
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
-    if (!res.ok) throw new Error("POST failed");
-
-    status.textContent = "تم حفظ التحديث بنجاح ✅";
-    status.className = "dashboard-status success-msg";
-
-    document.getElementById("name").value = "";
-    document.getElementById("project").value = "";
-    document.getElementById("update").value = "";
-
-    await loadUpdates();
-  } catch (e) {
-    status.textContent = "حدث خطأ أثناء الحفظ. تأكد من إعدادات SheetDB وأسماء الأعمدة.";
-    status.className = "dashboard-status error-msg";
-  }
-}
-
-async function loadUpdates() {
-  const list = document.getElementById("list");
-  list.innerHTML = '<p class="muted">جاري تحميل التحديثات...</p>';
-
-  try {
-    const res = await fetch(API_URL);
-    const rows = await res.json();
-
-    if (!Array.isArray(rows) || rows.length === 0) {
-      list.innerHTML = '<p class="muted">لا توجد تحديثات بعد.</p>';
-      return;
-    }
-
-    const last = rows.slice(-12).reverse();
-
-    list.innerHTML = "";
-    last.forEach(r => {
-      const item = document.createElement("div");
-      item.className = "update-item";
-
-      item.innerHTML = `
-        <div class="update-top">
-          <strong>${r.name || "عضو"}</strong>
-          <span class="muted">${r.project || "مشروع"}</span>
-        </div>
-        <p class="update-text">${r.update || ""}</p>
-        <span class="update-date muted">${r.date || ""}</span>
-      `;
-
-      list.appendChild(item);
-    });
-
-  } catch (e) {
-    list.innerHTML = '<p class="error-msg">تعذر تحميل التحديثات.</p>';
-  }
-}
-
-loadUpdates();
-setInterval(loadUpdates, 20000);
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
