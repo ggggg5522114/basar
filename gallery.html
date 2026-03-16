@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المعرض | بصر</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav container">
+    <a href="index.html" class="logo">بصر</a>
+    <button id="menuBtn" class="menu-btn" type="button"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="projects.html">المشاريع</a></li>
+      <li><a href="team.html">الفريق</a></li>
+      <li><a href="news.html">الأخبار</a></li>
+      <li><a href="gallery.html">المعرض</a></li>
+      <li><a href="join.html">انضم إلينا</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">المعرض</span>
+    <h1>صور من فعاليات ومبادرات بصر</h1>
+    <p>مساحة تعرض أبرز لحظات العمل الجماعي والأنشطة والإنجازات.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="gallery-grid">
+      <div class="gallery-item large reveal">
+        <img src="images/event-1.jpg" alt="فعالية طلابية">
+        <button class="gallery-overlay open-lightbox" type="button" data-img="images/event-1.jpg">
+          <h3>فعالية طلابية</h3>
+          <p>لقطة من إحدى الفعاليات</p>
+        </button>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="images/event-2.jpg" alt="ورشة عمل">
+        <button class="gallery-overlay open-lightbox" type="button" data-img="images/event-2.jpg">
+          <h3>ورشة عمل</h3>
+          <p>تطوير مهارات وتبادل خبرات</p>
+        </button>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="images/event-3.jpg" alt="اجتماع فريق">
+        <button class="gallery-overlay open-lightbox" type="button" data-img="images/event-3.jpg">
+          <h3>اجتماع الفريق</h3>
+          <p>تنسيق ومتابعة المشاريع</p>
+        </button>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="images/event-4.jpg" alt="مبادرة جديدة">
+        <button class="gallery-overlay open-lightbox" type="button" data-img="images/event-4.jpg">
+          <h3>مبادرة جديدة</h3>
+          <p>أفكار تتحول إلى أثر</p>
+        </button>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="images/event-5.jpg" alt="تجهيزات فعالية">
+        <button class="gallery-overlay open-lightbox" type="button" data-img="images/event-5.jpg">
+          <h3>تجهيزات الفعالية</h3>
+          <p>تنظيم احترافي وتعاون جماعي</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button">×</button>
+  <img id="lightboxImg" src="" alt="صورة مكبرة">
+</div>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <h3 class="footer-logo">بصر</h3>
+      <p>شركة طلابية تصنع فرصًا وتبني أثرًا مستدامًا.</p>
+    </div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
