@@ -1,265 +1,420 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شركة بصر الطلابية</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بصر | شركة طلابية تصنع الأثر</title>
+  <meta name="description" content="بصر شركة طلابية تركز على الابتكار، تطوير الطلاب، وبناء مشاريع نوعية ذات أثر داخل البيئة الجامعية وخارجها.">
 
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body>
 
   <header class="site-header">
     <nav class="nav container">
-      <div class="logo">بصر</div>
+      <a href="#home" class="logo">بصر</a>
 
-      <ul class="nav-links">
+      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">الرئيسية</a></li>
-        <li><a href="#about">عن بصر</a></li>
-        <li><a href="#services">مجالاتنا</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#why">لماذا بصر</a></li>
+        <li><a href="#stats">الإنجازات</a></li>
         <li><a href="#projects">المشاريع</a></li>
         <li><a href="#team">الفريق</a></li>
         <li><a href="#contact">تواصل معنا</a></li>
-        <li><a href="login.html">دخول الأعضاء</a></li>
+        <li><a href="login.html" class="nav-member-link">دخول الأعضاء</a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="home" class="hero">
-    <div class="container hero-grid">
+  <main>
 
-      <div class="hero-text">
-        <span class="hero-tag">شركة طلابية مبتكرة</span>
-        <h1>بصر — نحو أفكار أوضح ومشاريع أقوى</h1>
-        <p>
-          شركة طلابية تهدف إلى تحويل المعرفة الأكاديمية إلى مشاريع عملية، وبناء بيئة
-          تعاونية تدعم الابتكار وتطوّر مهارات الطلاب.
-        </p>
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
 
-        <div class="hero-actions">
-          <a class="btn" href="#about">تعرف علينا</a>
-          <a class="btn btn-light" href="#contact">ابدأ التواصل</a>
+      <div class="container hero-layout">
+        <div class="hero-content reveal">
+          <span class="hero-badge">شركة طلابية مبتكرة</span>
+          <h1>نصنع فرصًا يقودها الطلاب، ونحوّل الأفكار إلى مشاريع مؤثرة</h1>
+          <p>
+            بصر منصة طلابية احترافية تهدف إلى بناء بيئة تعاونية تجمع بين الطموح،
+            المعرفة، والعمل الفعلي لصناعة مبادرات ومشاريع تترك أثرًا واضحًا.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn">اكتشف بصر</a>
+            <a href="#projects" class="btn btn-light">تصفح مشاريعنا</a>
+          </div>
+
+          <div class="hero-tags">
+            <span>ابتكار</span>
+            <span>قيادة</span>
+            <span>عمل جماعي</span>
+            <span>أثر طلابي</span>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-card">
-        <div class="stat-box">
-          <strong>8</strong>
-          <span>عدد الأعضاء</span>
-        </div>
+        <div class="hero-panel reveal">
+          <div class="glass-card main-glass">
+            <div class="panel-top">
+              <span class="panel-label">هوية بصر</span>
+              <div class="panel-dot"></div>
+            </div>
 
-        <div class="mini-cards">
-          <div class="mini-card">
+            <h3>شركة طلابية برؤية واضحة</h3>
+            <p>
+              نؤمن أن الطالب قادر على صناعة قيمة حقيقية عندما يجد البيئة المناسبة،
+              الفريق المناسب، والمساحة التي تسمح له بالتجربة والنمو.
+            </p>
+
+            <div class="hero-mini-stats">
+              <div>
+                <strong>8+</strong>
+                <span>أعضاء</span>
+              </div>
+              <div>
+                <strong>12+</strong>
+                <span>مبادرة</span>
+              </div>
+              <div>
+                <strong>5+</strong>
+                <span>شراكات</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-card card-a">
             <i class="fa-solid fa-lightbulb"></i>
-            <h3>أفكار مبتكرة</h3>
-            <p>نحوّل المفاهيم إلى حلول قابلة للتطبيق.</p>
+            <span>أفكار قابلة للتنفيذ</span>
           </div>
 
-          <div class="mini-card">
-            <i class="fa-solid fa-users"></i>
-            <h3>عمل جماعي</h3>
-            <p>روح فريق تصنع أثرًا أكبر.</p>
+          <div class="floating-card card-b">
+            <i class="fa-solid fa-people-group"></i>
+            <span>فريق يصنع الأثر</span>
           </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-label">عن بصر</span>
-        <h2>من نحن</h2>
-        <p class="muted">
-          بصر شركة طلابية تسعى إلى تطوير الطلاب أكاديميًا وعمليًا عبر مشاريع تطبيقية
-          ومبادرات تعزز روح الابتكار والعمل الجماعي.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card soft-card">
-          <h3>رؤيتنا</h3>
-          <p class="muted">
-            أن نكون منصة طلابية رائدة في بناء المشاريع النوعية وصناعة أثر إيجابي داخل البيئة الجامعية وخارجها.
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">من نحن</span>
+          <h2>بصر أكثر من مجرد فريق طلابي</h2>
+          <p class="section-text">
+            نحن شركة طلابية تسعى إلى تحويل المعرفة الأكاديمية إلى ممارسات واقعية،
+            عبر مشاريع نوعية، مبادرات مبتكرة، وتجارب عملية تصنع فرقًا في حياة الطلاب.
           </p>
         </div>
 
-        <div class="card soft-card">
-          <h3>رسالتنا</h3>
-          <p class="muted">
-            تمكين الطلاب من اكتساب الخبرة العملية، وتحويل المعرفة إلى نتائج ومخرجات واقعية ذات قيمة.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="about-layout">
+          <div class="card about-card reveal">
+            <div class="icon-wrap">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3>رؤيتنا</h3>
+            <p class="muted">
+              أن نكون نموذجًا طلابيًا رائدًا في صناعة المبادرات والمشاريع التي تربط بين
+              الطموح الأكاديمي والتطبيق العملي.
+            </p>
+          </div>
 
-  <section id="services" class="section alt-section">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-label">مجالاتنا</span>
-        <h2>كيف نصنع القيمة</h2>
-      </div>
+          <div class="card about-card reveal">
+            <div class="icon-wrap">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>رسالتنا</h3>
+            <p class="muted">
+              تمكين الطلاب من تنمية المهارات، العمل الجماعي، وتطوير حلول ومبادرات ذات أثر
+              حقيقي داخل الجامعة وخارجها.
+            </p>
+          </div>
 
-      <div class="cards-grid">
-        <div class="card feature-card">
-          <i class="fa-solid fa-graduation-cap"></i>
-          <h3>تطوير الطلاب</h3>
-          <p class="muted">ورش، تجارب عملية، ومهارات ترفع جاهزية الطلاب.</p>
-        </div>
-
-        <div class="card feature-card">
-          <i class="fa-solid fa-rocket"></i>
-          <h3>الابتكار</h3>
-          <p class="muted">تحويل الأفكار إلى نماذج ومبادرات قابلة للتنفيذ.</p>
-        </div>
-
-        <div class="card feature-card">
-          <i class="fa-solid fa-handshake"></i>
-          <h3>التعاون</h3>
-          <p class="muted">بناء علاقات وشراكات مع جهات ومؤسسات مختلفة.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-label">المشاريع</span>
-        <h2>نماذج من أعمالنا</h2>
-      </div>
-
-      <div class="cards-grid">
-        <div class="card project-card">
-          <h3>برنامج تطوير المهارات</h3>
-          <p class="muted">ورش تدريبية وتطبيقات عملية تستهدف بناء مهارات مهمة للطلاب.</p>
-        </div>
-
-        <div class="card project-card">
-          <h3>تحدي الابتكار</h3>
-          <p class="muted">مساحة لتطوير حلول جديدة ومعالجة مشكلات واقعية بطرق مبتكرة.</p>
-        </div>
-
-        <div class="card project-card">
-          <h3>المبادرات الطلابية</h3>
-          <p class="muted">تنظيم أنشطة ومبادرات تخدم المجتمع الجامعي وتثري التجربة الطلابية.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="team" class="section alt-section">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-label">الفريق</span>
-        <h2>فريق بصر الطلابي</h2>
-      </div>
-
-      <div class="cards-grid team-grid">
-        <div class="card member-card">
-          <div class="avatar"><i class="fa-solid fa-user"></i></div>
-          <h3>عضو</h3>
-          <p class="muted">عضو في الفريق</p>
-        </div>
-
-        <div class="card member-card">
-          <div class="avatar"><i class="fa-solid fa-user"></i></div>
-          <h3>عضو</h3>
-          <p class="muted">عضو في الفريق</p>
-        </div>
-
-        <div class="card member-card">
-          <div class="avatar"><i class="fa-solid fa-user"></i></div>
-          <h3>عضو</h3>
-          <p class="muted">عضو في الفريق</p>
-        </div>
-
-        <div class="card member-card">
-          <div class="avatar"><i class="fa-solid fa-user"></i></div>
-          <h3>عضو</h3>
-          <p class="muted">عضو في الفريق</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-label">تواصل معنا</span>
-        <h2>يسعدنا استقبال استفساراتكم</h2>
-      </div>
-
-      <div class="contact-layout">
-        <div class="card contact-info">
-          <h3>معلومات التواصل</h3>
-          <p class="muted">البريد الإلكتروني: basar2026a@gmail.com</p>
-          <p class="muted">رقم الهاتف: +966000000000</p>
-
-          <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <div class="card about-card reveal">
+            <div class="icon-wrap">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3>قيمنا</h3>
+            <p class="muted">
+              الاحترافية، الالتزام، الإبداع، روح الفريق، والاستمرار في التعلم والتطوير.
+            </p>
           </div>
         </div>
-
-        <form class="card contact-form" id="contact-form">
-          <label>الاسم</label>
-          <input type="text" name="name" placeholder="اكتب اسمك" required>
-
-          <label>البريد الإلكتروني</label>
-          <input type="email" name="email" placeholder="اكتب بريدك الإلكتروني" required>
-
-          <label>الرسالة</label>
-          <textarea name="message" rows="6" placeholder="اكتب رسالتك هنا" required></textarea>
-
-          <button class="btn full-btn" type="submit">إرسال الرسالة</button>
-          <p id="form-status" class="muted"></p>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="why" class="section alt-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">لماذا بصر</span>
+          <h2>ما الذي يجعلنا مختلفين؟</h2>
+        </div>
+
+        <div class="feature-grid">
+          <div class="card feature-box reveal">
+            <div class="feature-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3>تطوير حقيقي للطلاب</h3>
+            <p class="muted">
+              نركز على منح الطلاب فرصًا عملية تبني الثقة والخبرة، وليس مجرد محتوى نظري.
+            </p>
+          </div>
+
+          <div class="card feature-box reveal">
+            <div class="feature-icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3>مشاريع قابلة للنمو</h3>
+            <p class="muted">
+              نعمل على مشاريع ومبادرات يمكن تطويرها وتحويلها إلى نتائج ملموسة.
+            </p>
+          </div>
+
+          <div class="card feature-box reveal">
+            <div class="feature-icon">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <h3>بيئة تعاونية</h3>
+            <p class="muted">
+              العمل الجماعي هو أساسنا، ونؤمن أن أفضل النتائج تولد من التعاون والتكامل.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="section stats-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">الإنجازات</span>
+          <h2>أرقام تعكس رحلتنا</h2>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card reveal">
+            <strong>8+</strong>
+            <span>أعضاء نشطين</span>
+          </div>
+          <div class="stat-card reveal">
+            <strong>12+</strong>
+            <span>مبادرة ومشروع</span>
+          </div>
+          <div class="stat-card reveal">
+            <strong>20+</strong>
+            <span>فرصة تطوير</span>
+          </div>
+          <div class="stat-card reveal">
+            <strong>5+</strong>
+            <span>جهات متعاونة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">المشاريع</span>
+          <h2>نماذج من أعمال بصر</h2>
+          <p class="section-text">
+            هذه أمثلة على نوعية الأعمال والمبادرات التي يمكن عرضها داخل الموقع بشكل احترافي.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="card project-item reveal">
+            <div class="project-top">
+              <span class="project-status active-status">قيد التنفيذ</span>
+            </div>
+            <h3>برنامج تطوير المهارات</h3>
+            <p class="muted">
+              برنامج يركز على صقل المهارات الشخصية والمهنية لدى الطلاب عبر تطبيقات وأنشطة عملية.
+            </p>
+            <a href="#" class="project-link">عرض التفاصيل</a>
+          </div>
+
+          <div class="card project-item reveal">
+            <div class="project-top">
+              <span class="project-status done-status">مكتمل</span>
+            </div>
+            <h3>تحدي الابتكار الطلابي</h3>
+            <p class="muted">
+              مبادرة تحفز الطلاب على تقديم حلول واقعية لمشكلات جامعية أو مجتمعية بطرق مبتكرة.
+            </p>
+            <a href="#" class="project-link">عرض التفاصيل</a>
+          </div>
+
+          <div class="card project-item reveal">
+            <div class="project-top">
+              <span class="project-status soon-status">قريبًا</span>
+            </div>
+            <h3>منصة الفرص الطلابية</h3>
+            <p class="muted">
+              مساحة تجمع الفرص، المشاريع، المشاركات، والأنشطة التي تساعد الطلاب على التطور المستمر.
+            </p>
+            <a href="#" class="project-link">عرض التفاصيل</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">رحلتنا</span>
+          <h2>محطات في مسيرة بصر</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content card">
+              <h3>بداية الفكرة</h3>
+              <p class="muted">انبثقت بصر من رغبة في تأسيس كيان طلابي يجمع بين الطموح والتنفيذ.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content card">
+              <h3>إطلاق أول المبادرات</h3>
+              <p class="muted">بدأنا في تنفيذ مبادرات صغيرة لبناء الخبرة وتوسيع دائرة التأثير.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content card">
+              <h3>مرحلة النمو والتطوير</h3>
+              <p class="muted">توسعت الأفكار، وبدأ الفريق في بناء مشاريع أكثر تنظيمًا واحترافية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">الفريق</span>
+          <h2>الأشخاص الذين يقودون بصر</h2>
+        </div>
+
+        <div class="team-grid">
+          <div class="card team-card reveal">
+            <div class="team-avatar"><i class="fa-solid fa-user"></i></div>
+            <h3>اسم العضو</h3>
+            <p class="team-role">المدير التنفيذي</p>
+            <p class="muted">يقود الرؤية العامة ويتابع مسار العمل والمبادرات.</p>
+          </div>
+
+          <div class="card team-card reveal">
+            <div class="team-avatar"><i class="fa-solid fa-user"></i></div>
+            <h3>اسم العضو</h3>
+            <p class="team-role">قائد المشاريع</p>
+            <p class="muted">يشرف على تنظيم المشاريع ومتابعة التنفيذ بين الأعضاء.</p>
+          </div>
+
+          <div class="card team-card reveal">
+            <div class="team-avatar"><i class="fa-solid fa-user"></i></div>
+            <h3>اسم العضو</h3>
+            <p class="team-role">قائد الإعلام والمحتوى</p>
+            <p class="muted">مسؤول عن الهوية البصرية، الرسائل، والمحتوى الإعلامي.</p>
+          </div>
+
+          <div class="card team-card reveal">
+            <div class="team-avatar"><i class="fa-solid fa-user"></i></div>
+            <h3>اسم العضو</h3>
+            <p class="team-role">قائد التطوير</p>
+            <p class="muted">يتابع التطوير الرقمي، المنصات، والواجهات التقنية الخاصة بالمبادرات.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <span class="section-label">انضم إلينا</span>
+            <h2>هل تبحث عن بيئة تصنع منك فرقًا حقيقيًا؟</h2>
+            <p class="muted">
+              يمكن أن يكون موقع بصر بوابتك للمشاركة، التطوير، وبناء أثر مهني وطلابي واضح.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a href="#contact" class="btn">تواصل معنا</a>
+            <a href="login.html" class="btn btn-light">دخول الأعضاء</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">تواصل معنا</span>
+          <h2>يسعدنا استقبال استفساراتكم ومقترحاتكم</h2>
+        </div>
+
+        <div class="contact-layout">
+          <div class="card contact-info reveal">
+            <h3>معلومات التواصل</h3>
+            <p class="muted">البريد الإلكتروني: basar2026a@gmail.com</p>
+            <p class="muted">رقم الهاتف: +966000000000</p>
+
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <form class="card contact-form reveal" id="contact-form">
+            <label for="contact-name">الاسم</label>
+            <input id="contact-name" type="text" name="name" placeholder="اكتب اسمك" required>
+
+            <label for="contact-email">البريد الإلكتروني</label>
+            <input id="contact-email" type="email" name="email" placeholder="اكتب بريدك الإلكتروني" required>
+
+            <label for="contact-message">الرسالة</label>
+            <textarea id="contact-message" name="message" rows="6" placeholder="اكتب رسالتك هنا" required></textarea>
+
+            <button class="btn full-btn" type="submit">إرسال الرسالة</button>
+            <p id="form-status" class="muted form-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© 2026 شركة بصر الطلابية</p>
-      <a class="to-top" href="#home">العودة للأعلى</a>
+      <div>
+        <h3 class="footer-logo">بصر</h3>
+        <p>شركة طلابية تصنع فرصًا وتبني أثرًا مستدامًا.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#about">من نحن</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#team">الفريق</a>
+        <a href="#contact">تواصل معنا</a>
+      </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init({
-        publicKey: "577y7DltqKqmOXhwx"
-      });
-    })();
-
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const status = document.getElementById("form-status");
-      status.innerText = "جاري إرسال الرسالة...";
-
-      emailjs.sendForm(
-        "service_t57rwys",
-        "template_9qt9yso",
-        this
-      ).then(function () {
-        status.innerText = "تم إرسال الرسالة بنجاح ✅";
-        document.getElementById("contact-form").reset();
-      }, function () {
-        status.innerText = "حدث خطأ أثناء الإرسال ❌";
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
