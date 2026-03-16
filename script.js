@@ -23,6 +23,69 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
+// Counter animation
+const counters = document.querySelectorAll("[data-target]");
+let countersStarted = false;
+
+function animateCounters() {
+  if (countersStarted) return;
+
+  const statsSection = document.querySelector(".stats-section");
+  if (!statsSection) return;
+
+  const sectionTop = statsSection.getBoundingClientRect().top;
+  if (sectionTop < window.innerHeight - 100) {
+    countersStarted = true;
+
+    counters.forEach(counter => {
+      const target = +counter.dataset.target;
+      let current = 0;
+      const step = Math.max(1, Math.ceil(target / 40));
+
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          counter.textContent = target + "+";
+          clearInterval(timer);
+        } else {
+          counter.textContent = current;
+        }
+      }, 35);
+    });
+  }
+}
+
+window.addEventListener("scroll", animateCounters);
+window.addEventListener("load", animateCounters);
+
+// Lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+const lightboxClose = document.getElementById("lightboxClose");
+const openButtons = document.querySelectorAll(".open-lightbox");
+
+openButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const imgSrc = btn.dataset.img;
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = imgSrc;
+    lightbox.classList.add("show");
+  });
+});
+
+if (lightboxClose && lightbox) {
+  lightboxClose.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("show");
+    }
+  });
+}
+
+// EmailJS
 if (typeof emailjs !== "undefined") {
   emailjs.init({
     publicKey: "577y7DltqKqmOXhwx"
@@ -50,6 +113,7 @@ if (contactForm) {
   });
 }
 
+// Login
 function togglePassword() {
   const passInput = document.getElementById("pass");
   const toggleBtn = document.querySelector(".toggle-pass");
@@ -93,6 +157,7 @@ if (passInput) {
   });
 }
 
+// Dashboard protection
 if (window.location.pathname.includes("dashboard.html")) {
   if (localStorage.getItem("basar_logged") !== "yes") {
     window.location.href = "login.html";
@@ -104,6 +169,7 @@ function logout() {
   window.location.href = "login.html";
 }
 
+// SheetDB
 const API_URL = "https://sheetdb.io/api/v1/yif5p1hj2cn27";
 
 async function sendUpdate() {
@@ -188,7 +254,6 @@ async function loadUpdates() {
 
       list.appendChild(item);
     });
-
   } catch (e) {
     list.innerHTML = '<p class="error-msg">تعذر تحميل التحديثات.</p>';
   }
