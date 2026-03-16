@@ -3,64 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>تسجيل دخول أعضاء بصر</title>
+  <title>دخول الأعضاء | بصر</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <header class="site-header">
   <nav class="nav container">
-    <div class="logo">بصر</div>
-    <ul class="nav-links" style="display:flex;">
+    <a href="index.html" class="logo">بصر</a>
+    <button id="menuBtn" class="menu-btn" type="button"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">العودة للموقع</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="section">
+<section class="section login-section">
   <div class="container">
-
-    <div class="section-head">
+    <div class="section-head reveal">
+      <span class="section-label">بوابة الأعضاء</span>
       <h2>تسجيل دخول أعضاء بصر</h2>
       <p class="muted">الرجاء إدخال كلمة المرور الخاصة بالأعضاء</p>
     </div>
 
-    <div class="card" style="max-width:520px;margin:0 auto;">
-      <label>كلمة المرور</label>
-      <input id="pass" type="password" placeholder="اكتب كلمة المرور"
-        style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin:10px 0;font-family:'Cairo',sans-serif;" />
+    <div class="card login-card reveal">
+      <label for="pass">كلمة المرور</label>
 
-      <button class="btn" style="width:100%;" onclick="login()">تسجيل الدخول</button>
+      <div class="password-wrap">
+        <input id="pass" type="password" placeholder="اكتب كلمة المرور" />
+        <button type="button" class="toggle-pass" onclick="togglePassword()">إظهار</button>
+      </div>
 
-      <p id="msg" class="muted" style="margin-top:12px;"></p>
+      <button class="btn full-btn" type="button" onclick="login()">تسجيل الدخول</button>
+      <p id="msg" class="login-msg muted"></p>
 
       <div class="divider"></div>
-
-      <p class="muted" style="margin:0;">
-        ملاحظة: هذه صفحة داخلية لأعضاء بصر لمتابعة المشاريع.
-      </p>
+      <p class="muted">هذه صفحة داخلية لأعضاء بصر لمتابعة التحديثات والمشاريع.</p>
     </div>
-
   </div>
 </section>
 
-<script>
-function login(){
-  const pass = document.getElementById("pass").value.trim();
-  const msg = document.getElementById("msg");
-
-  // ✅ غيّر كلمة المرور هنا
-  const MEMBER_PASSWORD = "BASAR123";
-
-  if(pass === MEMBER_PASSWORD){
-    localStorage.setItem("basar_logged","yes");
-    window.location.href = "dashboard.html";
-  } else {
-    msg.textContent = "كلمة المرور غير صحيحة";
-  }
-}
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
