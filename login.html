@@ -2,49 +2,66 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>دخول الأعضاء | بصر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-road"></i></span>
+        <span>بصر</span>
+      </a>
 
-<header class="site-header">
-  <nav class="nav container">
-    <a href="index.html" class="logo">بصر</a>
-    <button id="menuBtn" class="menu-btn" type="button"><i class="fa-solid fa-bars"></i></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">العودة للموقع</a></li>
-    </ul>
-  </nav>
-</header>
+      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-<section class="section login-section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">بوابة الأعضاء</span>
-      <h2>تسجيل دخول أعضاء بصر</h2>
-      <p class="muted">الرجاء إدخال كلمة المرور الخاصة بالأعضاء</p>
-    </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">العودة للموقع</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="card login-card reveal">
-      <label for="pass">كلمة المرور</label>
+  <section class="section login-section">
+    <div class="container">
+      <div class="auth-wrap">
+        <div class="auth-card reveal">
+          <div class="section-head">
+            <span class="section-label">بوابة الأعضاء</span>
+            <h2>تسجيل دخول أعضاء بصر</h2>
+            <p>الرجاء إدخال كلمة المرور الخاصة بالأعضاء</p>
+          </div>
 
-      <div class="password-wrap">
-        <input id="pass" type="password" placeholder="اكتب كلمة المرور" />
-        <button type="button" class="toggle-pass" onclick="togglePassword()">إظهار</button>
+          <div class="form-group">
+            <label for="pass">كلمة المرور</label>
+            <div class="password-wrap">
+              <input id="pass" type="password" placeholder="اكتب كلمة المرور" />
+              <button type="button" class="toggle-pass" onclick="togglePassword()">إظهار</button>
+            </div>
+          </div>
+
+          <button class="btn btn-primary full-btn" type="button" onclick="login()">
+            تسجيل الدخول
+          </button>
+
+          <p id="msg" class="login-msg muted"></p>
+        </div>
       </div>
-
-      <button class="btn full-btn" type="button" onclick="login()">تسجيل الدخول</button>
-      <p id="msg" class="login-msg muted"></p>
-
-      <div class="divider"></div>
-      <p class="muted">هذه صفحة داخلية لأعضاء بصر لمتابعة التحديثات والمشاريع.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
