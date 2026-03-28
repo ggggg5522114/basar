@@ -23,6 +23,38 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
+/* Contact Form - EmailJS */
+if (typeof emailjs !== "undefined") {
+  emailjs.init({
+    publicKey: "577y7DltqKqmOXhwx"
+  });
+}
+
+const contactForm = document.getElementById("contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const status = document.getElementById("form-status");
+    status.textContent = "جاري إرسال الرسالة...";
+    status.className = "login-msg muted";
+
+    emailjs.sendForm(
+      "service_t57rwys",
+      "template_9qt9yso",
+      this
+    ).then(function () {
+      status.textContent = "تم إرسال الرسالة بنجاح ✅";
+      status.className = "login-msg success-msg";
+      contactForm.reset();
+    }, function () {
+      status.textContent = "حدث خطأ أثناء الإرسال ❌";
+      status.className = "login-msg error-msg";
+    });
+  });
+}
+
 /* Login */
 function togglePassword() {
   const passInput = document.getElementById("pass");
@@ -99,7 +131,7 @@ async function sendUpdate() {
   }
 
   status.textContent = "جاري الحفظ...";
-  status.className = "dashboard-status";
+  status.className = "dashboard-status muted";
 
   try {
     const payload = {
