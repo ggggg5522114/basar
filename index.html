@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة الأعضاء | بصر</title>
+  <title>بصر | BASAR</title>
+  <meta
+    name="description"
+    content="بصر شركة طلابية من جامعة السلطان قابوس تطور نظامًا ذكيًا لتقليل حوادث اصطدام السيارات بالحيوانات على الطرق عبر الاكتشاف المبكر والتنبيه الفوري للسائقين."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -19,7 +24,7 @@
 <body>
   <header class="site-header">
     <nav class="nav container">
-      <a href="index.html" class="logo">
+      <a href="#home" class="logo">
         <span class="logo-mark"><i class="fa-solid fa-road"></i></span>
         <span>بصر</span>
       </a>
@@ -29,64 +34,373 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="dashboard.html">لوحة الأعضاء</a></li>
-        <li><a href="#" onclick="logout()">تسجيل خروج</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#why">ما الذي يجعلنا مختلفين</a></li>
+        <li><a href="#news">الأخبار</a></li>
+        <li><a href="#team">الفريق</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+        <li><a href="login.html" class="nav-cta">دخول الأعضاء</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="section dashboard-section">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="section-label">بوابة الأعضاء</span>
-        <h2>لوحة أعضاء بصر</h2>
-        <p>إضافة تحديثات الفريق ومتابعة آخر المستجدات.</p>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">
+            <i class="fa-solid fa-shield-halved"></i>
+            شركة طلابية من جامعة السلطان قابوس
+          </span>
+
+          <h1>
+            نحو طرق أكثر أمانًا عبر نظام ذكي يكتشف الحيوانات وينبه السائقين مبكرًا
+          </h1>
+
+          <p>
+            بصر شركة طلابية من جامعة السلطان قابوس، وهدف المشروع هو تقليل حوادث
+            اصطدام السيارات بالحيوانات على الطرق، من خلال نظام ذكي يقوم باكتشاف
+            وجود الحيوانات وتنبيه السائقين بشكل مبكر لتمكينهم من تخفيف السرعة
+            وتفادي الخطر.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">
+              <i class="fa-solid fa-circle-info"></i>
+              اكتشف بصر
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fa-brands fa-instagram"></i>
+              تواصل معنا
+            </a>
+          </div>
+
+          <div class="hero-tags">
+            <span>سلامة مرورية</span>
+            <span>حل ذكي</span>
+            <span>أثر مجتمعي</span>
+            <span>ابتكار طلابي</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="glass-panel">
+            <div class="road-scene">
+              <div class="road-note">
+                <strong>اكتشاف مبكر = وقت كافٍ للاستجابة</strong>
+                <p>
+                  فكرة المشروع ترتكز على منع الخطر قبل وقوعه، لا التعامل معه بعد
+                  حدوثه.
+                </p>
+              </div>
+            </div>
+
+            <div class="panel-stats">
+              <div class="mini-card">
+                <strong>4</strong>
+                <span>أعضاء</span>
+              </div>
+              <div class="mini-card">
+                <strong>ذكي</strong>
+                <span>نظام تنبيه</span>
+              </div>
+              <div class="mini-card">
+                <strong>مبكر</strong>
+                <span>اكتشاف الخطر</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating one">
+            <i class="fa-solid fa-bell"></i>
+            <span>تنبيه فوري للسائق</span>
+          </div>
+
+          <div class="floating two">
+            <i class="fa-solid fa-paw"></i>
+            <span>حماية الإنسان والحيوان</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">من نحن</span>
+          <h2>فريق طلابي يطوّر حلًا عمليًا لمشكلة واقعية</h2>
+          <p>
+            نعمل على تقديم مشروع تقني يخدم السلامة المرورية ويعكس قدرة الطلبة على
+            تحويل الفكرة إلى أثر حقيقي قابل للتطبيق.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card about-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <h3>رؤيتنا</h3>
+            <p>
+              أن نكون روادًا في تطوير حلول ذكية تسهم في حماية الأرواح وتقليل
+              الحوادث المرورية، عبر توظيف التقنية لخدمة الإنسان والبيئة.
+            </p>
+          </article>
+
+          <article class="card about-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h3>رسالتنا</h3>
+            <p>
+              نسعى إلى تطوير نظام ذكي يعتمد على التقنيات الحديثة لاكتشاف وجود
+              الحيوانات على الطرق وتنبيه السائقين بشكل مبكر، بهدف تقليل الحوادث
+              وتعزيز السلامة المرورية في المجتمع.
+            </p>
+          </article>
+
+          <article class="card about-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3>قيمنا</h3>
+            <p>
+              السلامة أولًا، الابتكار، العمل الجماعي، المسؤولية المجتمعية،
+              والاستدامة.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section alt-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">ما الذي يجعلنا مختلفين</span>
+          <h2>حل ذكي لمشكلة حقيقية على الطرق</h2>
+          <p>
+            نتميز بأننا لا نقدم فكرة نظرية فقط، بل حلًا ذا قيمة مجتمعية واضحة
+            وقابلًا للتطوير مستقبلًا.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card feature-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3>حل واقعي</h3>
+            <p>
+              نركز على مشكلة موجودة فعليًا على الطرق، ونقدم لها حلًا عمليًا قابلًا
+              للتطبيق.
+            </p>
+          </article>
+
+          <article class="card feature-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3>تقنية ذكية</h3>
+            <p>
+              نعتمد على الاكتشاف المبكر والتنبيه الفوري لتحويل التقنية إلى أداة
+              مباشرة لحماية الأرواح.
+            </p>
+          </article>
+
+          <article class="card feature-card reveal">
+            <div class="icon-box">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h3>أثر مزدوج</h3>
+            <p>
+              مشروعنا يحمي السائقين من جهة، ويساهم في حماية الحيوانات والحفاظ على
+              التوازن البيئي من جهة أخرى.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats-band">
+      <div class="container">
+        <div class="single-stat reveal">
+          <strong>4</strong>
+          <span>أعضاء الفريق</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">الأخبار</span>
+          <h2>آخر أخبار بصر</h2>
+          <p>تابعوا مشاركاتنا وأبرز مستجداتنا.</p>
+        </div>
+
+        <article class="card news-card reveal">
+          <div class="news-content">
+            <span class="news-badge">إعلان</span>
+            <h3>مشاركتنا في الملتقى الهندسي</h3>
+            <p>
+              تشارك شركة بصر في الملتقى الهندسي المقام في القاعة الكبرى، حيث
+              نستعرض مشروعنا الهادف إلى تقليل حوادث اصطدام السيارات بالحيوانات على
+              الطرق من خلال نظام ذكي للتنبيه المبكر.
+            </p>
+          </div>
+
+          <div class="schedule">
+            <div class="schedule-item">
+              <strong>يوم الاثنين</strong>
+              <span>9 صباحًا - 6 مساءً</span>
+            </div>
+            <div class="schedule-item">
+              <strong>يوم الثلاثاء</strong>
+              <span>9 صباحًا - 6 مساءً</span>
+            </div>
+            <div class="schedule-item">
+              <strong>يوم الأربعاء</strong>
+              <span>9 صباحًا - 12 ظهرًا</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" class="section alt-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">الفريق</span>
+          <h2>الأشخاص الذين يقودون بصر</h2>
+          <p>فريق مكوّن من أربعة أعضاء يعملون بروح واحدة نحو هدف واضح.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card member-card reveal">
+            <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="member-name">عضو الفريق</div>
+            <p>جزء من فريق بصر في تطوير الفكرة وتحويلها إلى مشروع عملي.</p>
+          </article>
+
+          <article class="card member-card reveal">
+            <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="member-name">عضو الفريق</div>
+            <p>يساهم في دعم المشروع والعمل الجماعي وتحقيق أهدافه.</p>
+          </article>
+
+          <article class="card member-card reveal">
+            <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="member-name">عضو الفريق</div>
+            <p>يشارك في تطوير الجوانب المختلفة للمشروع بروح تعاونية.</p>
+          </article>
+
+          <article class="card member-card reveal">
+            <div class="member-avatar"><i class="fa-solid fa-user"></i></div>
+            <div class="member-name">عضو الفريق</div>
+            <p>يسهم في بناء المشروع وتطويره بشكل احترافي ومستمر.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">تواصل معنا</span>
+          <h2>استقبال طلباتكم واستفساراتكم</h2>
+          <p>
+            يمكنكم إرسال رسائلكم مباشرة عبر النموذج التالي أو التواصل معنا عبر
+            إنستغرام.
+          </p>
+        </div>
+
+        <div class="contact-wrap">
+          <form class="card contact-card reveal" id="contact-form">
+            <h3>أرسل لنا رسالة</h3>
+
+            <div class="form-group">
+              <label for="contact-name">الاسم</label>
+              <input
+                id="contact-name"
+                type="text"
+                name="name"
+                placeholder="اكتب اسمك"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">البريد الإلكتروني</label>
+              <input
+                id="contact-email"
+                type="email"
+                name="email"
+                placeholder="اكتب بريدك الإلكتروني"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">الرسالة</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="6"
+                placeholder="اكتب رسالتك هنا"
+                required
+              ></textarea>
+            </div>
+
+            <button class="btn btn-primary full-btn" type="submit">
+              إرسال الرسالة
+            </button>
+
+            <p id="form-status" class="login-msg muted"></p>
+          </form>
+
+          <div class="contact-visual reveal">
+            <div class="contact-quote">
+              <strong>تواصل معنا أيضًا عبر إنستغرام</strong>
+              <p>
+                نسعد باستقبال استفساراتكم وطلباتكم عبر دايركت الإنستغرام.
+              </p>
+
+              <a
+                href="https://www.instagram.com/b_as_ar/?hl=ar"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+              >
+                <i class="fa-brands fa-instagram"></i>
+                حساب بصر على إنستغرام
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>بصر</strong>
+        <p>شركة طلابية من جامعة السلطان قابوس.</p>
       </div>
 
-      <div class="dashboard-grid">
-        <div class="dashboard-card reveal">
-          <h3>إضافة تحديث جديد</h3>
-
-          <div class="form-group">
-            <label for="name">اسم العضو</label>
-            <input id="name" type="text" placeholder="مثال: أحمد" />
-          </div>
-
-          <div class="form-group">
-            <label for="update">التحديث</label>
-            <textarea
-              id="update"
-              rows="6"
-              placeholder="اكتب تحديثك هنا..."
-            ></textarea>
-          </div>
-
-          <button class="btn btn-primary full-btn" type="button" onclick="sendUpdate()">
-            حفظ التحديث
-          </button>
-
-          <p id="status" class="dashboard-status muted"></p>
-        </div>
-
-        <div class="dashboard-card reveal">
-          <div class="dashboard-header-row">
-            <h3>آخر التحديثات</h3>
-            <button class="btn btn-secondary small-btn" type="button" onclick="loadUpdates()">
-              تحديث
-            </button>
-          </div>
-
-          <div class="divider"></div>
-
-          <div id="list" class="updates-list">
-            <p class="muted">جاري التحميل...</p>
-          </div>
-        </div>
+      <div class="footer-links">
+        <a href="#about">من نحن</a>
+        <a href="#why">ما الذي يجعلنا مختلفين</a>
+        <a href="#news">الأخبار</a>
+        <a href="#team">الفريق</a>
       </div>
     </div>
-  </section>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
