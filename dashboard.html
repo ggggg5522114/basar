@@ -1,68 +1,92 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>لوحة الأعضاء | بصر</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"><i class="fa-solid fa-road"></i></span>
+        <span>بصر</span>
+      </a>
 
-<header class="site-header">
-  <nav class="nav container">
-    <a href="index.html" class="logo">بصر</a>
-    <button id="menuBtn" class="menu-btn" type="button"><i class="fa-solid fa-bars"></i></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">الرئيسية</a></li>
-      <li><a href="dashboard.html">لوحة الأعضاء</a></li>
-      <li><a href="#" onclick="logout()">تسجيل خروج</a></li>
-    </ul>
-  </nav>
-</header>
+      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-<section class="section dashboard-section">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-label">بوابة الأعضاء</span>
-      <h2>لوحة الأعضاء</h2>
-      <p class="muted">إضافة تحديثات المشاريع ومشاهدة آخر المستجدات</p>
-    </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="dashboard.html">لوحة الأعضاء</a></li>
+        <li><a href="#" onclick="logout()">تسجيل خروج</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="dashboard-grid">
-      <div class="card dashboard-card reveal">
-        <h3>إضافة تحديث جديد</h3>
-
-        <label for="name">اسم العضو</label>
-        <input id="name" type="text" placeholder="مثال: أحمد" />
-
-        <label for="project">اسم المشروع</label>
-        <input id="project" type="text" placeholder="مثال: منصة بصر" />
-
-        <label for="update">التحديث</label>
-        <textarea id="update" rows="6" placeholder="اكتب تحديث المشروع..."></textarea>
-
-        <button class="btn full-btn" type="button" onclick="sendUpdate()">حفظ التحديث</button>
-        <p id="status" class="dashboard-status muted"></p>
+  <section class="section dashboard-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-label">بوابة الأعضاء</span>
+        <h2>لوحة أعضاء بصر</h2>
+        <p>إضافة تحديثات الفريق ومتابعة آخر المستجدات.</p>
       </div>
 
-      <div class="card dashboard-card reveal">
-        <div class="dashboard-header-row">
-          <h3>آخر التحديثات</h3>
-          <button class="btn btn-light small-btn" type="button" onclick="loadUpdates()">تحديث</button>
+      <div class="dashboard-grid">
+        <div class="dashboard-card reveal">
+          <h3>إضافة تحديث جديد</h3>
+
+          <div class="form-group">
+            <label for="name">اسم العضو</label>
+            <input id="name" type="text" placeholder="مثال: أحمد" />
+          </div>
+
+          <div class="form-group">
+            <label for="update">التحديث</label>
+            <textarea
+              id="update"
+              rows="6"
+              placeholder="اكتب تحديثك هنا..."
+            ></textarea>
+          </div>
+
+          <button class="btn btn-primary full-btn" type="button" onclick="sendUpdate()">
+            حفظ التحديث
+          </button>
+
+          <p id="status" class="dashboard-status muted"></p>
         </div>
 
-        <div class="divider"></div>
-        <div id="list" class="updates-list">
-          <p class="muted">جاري التحميل...</p>
+        <div class="dashboard-card reveal">
+          <div class="dashboard-header-row">
+            <h3>آخر التحديثات</h3>
+            <button class="btn btn-secondary small-btn" type="button" onclick="loadUpdates()">
+              تحديث
+            </button>
+          </div>
+
+          <div class="divider"></div>
+
+          <div id="list" class="updates-list">
+            <p class="muted">جاري التحميل...</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
