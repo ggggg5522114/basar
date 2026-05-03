@@ -6,14 +6,8 @@
   <title>دخول الأعضاء | بصر</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,7 +18,7 @@
         <span>بصر</span>
       </a>
 
-      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة">
+      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة" aria-expanded="false">
         <i class="fa-solid fa-bars"></i>
       </button>
 
@@ -38,25 +32,44 @@
     <div class="container">
       <div class="auth-wrap">
         <div class="auth-card reveal">
-          <div class="section-head">
+
+          <div class="section-head" style="margin-bottom:28px">
+            <div style="width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,var(--primary-2),var(--primary));display:grid;place-items:center;margin:0 auto 18px;font-size:26px;box-shadow:0 12px 30px rgba(76,201,240,.25)">
+              <i class="fa-solid fa-lock"></i>
+            </div>
             <span class="section-label">بوابة الأعضاء</span>
-            <h2>تسجيل دخول أعضاء بصر</h2>
-            <p>الرجاء إدخال كلمة المرور الخاصة بالأعضاء</p>
+            <h2 style="margin-top:10px">تسجيل دخول أعضاء بصر</h2>
+            <p class="muted">الرجاء إدخال كلمة المرور الخاصة بالأعضاء</p>
           </div>
 
           <div class="form-group">
             <label for="pass">كلمة المرور</label>
             <div class="password-wrap">
-              <input id="pass" type="password" placeholder="اكتب كلمة المرور" />
+              <input
+                id="pass"
+                type="password"
+                placeholder="••••••••"
+                autocomplete="current-password"
+                maxlength="128"
+              />
               <button type="button" class="toggle-pass" onclick="togglePassword()">إظهار</button>
             </div>
           </div>
 
           <button class="btn btn-primary full-btn" type="button" onclick="login()">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
             تسجيل الدخول
           </button>
 
-          <p id="msg" class="login-msg muted"></p>
+          <p id="msg" class="login-msg muted" role="alert" aria-live="polite"></p>
+
+          <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);text-align:center">
+            <a href="index.html" style="color:var(--muted);font-size:14px;font-weight:700">
+              <i class="fa-solid fa-arrow-right" style="margin-left:6px"></i>
+              العودة للموقع
+            </a>
+          </div>
+
         </div>
       </div>
     </div>
