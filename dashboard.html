@@ -6,14 +6,8 @@
   <title>لوحة الأعضاء | بصر</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,55 +18,82 @@
         <span>بصر</span>
       </a>
 
-      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة">
+      <button id="menuBtn" class="menu-btn" type="button" aria-label="فتح القائمة" aria-expanded="false">
         <i class="fa-solid fa-bars"></i>
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="dashboard.html">لوحة الأعضاء</a></li>
-        <li><a href="#" onclick="logout()">تسجيل خروج</a></li>
+        <li><a href="index.html"><i class="fa-solid fa-house" style="margin-left:6px;font-size:13px"></i>الرئيسية</a></li>
+        <li><a href="dashboard.html"><i class="fa-solid fa-gauge" style="margin-left:6px;font-size:13px"></i>لوحة الأعضاء</a></li>
+        <li><a href="#" onclick="logout()" class="nav-cta"><i class="fa-solid fa-right-from-bracket" style="margin-left:6px;font-size:13px"></i>تسجيل خروج</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="section dashboard-section">
     <div class="container">
+
       <div class="section-head reveal">
-        <span class="section-label">بوابة الأعضاء</span>
+        <span class="section-label"><i class="fa-solid fa-gauge" style="margin-left:6px"></i>بوابة الأعضاء</span>
         <h2>لوحة أعضاء بصر</h2>
-        <p>إضافة تحديثات الفريق ومتابعة آخر المستجدات.</p>
+        <p>إضافة تحديثات الفريق ومتابعة آخر المستجدات في مكان واحد.</p>
+      </div>
+
+      <!-- إحصائيات سريعة -->
+      <div class="dash-stats reveal" style="max-width:600px;margin:0 auto 32px">
+        <div class="dash-stat">
+          <strong id="updateCount">—</strong>
+          <span>إجمالي التحديثات</span>
+        </div>
+        <div class="dash-stat">
+          <strong>4</strong>
+          <span>أعضاء الفريق</span>
+        </div>
+        <div class="dash-stat">
+          <strong id="lastUpdate" style="font-size:13px;line-height:1.4">—</strong>
+          <span>آخر تحديث</span>
+        </div>
       </div>
 
       <div class="dashboard-grid">
+
+        <!-- نموذج الإضافة -->
         <div class="dashboard-card reveal">
-          <h3>إضافة تحديث جديد</h3>
+          <h3><i class="fa-solid fa-pen-to-square" style="color:var(--primary);margin-left:8px"></i>إضافة تحديث جديد</h3>
 
           <div class="form-group">
             <label for="name">اسم العضو</label>
-            <input id="name" type="text" placeholder="مثال: أحمد" />
+            <input id="name" type="text" placeholder="مثال: أحمد" autocomplete="off" maxlength="60" />
           </div>
 
           <div class="form-group">
             <label for="update">التحديث</label>
             <textarea
               id="update"
-              rows="6"
-              placeholder="اكتب تحديثك هنا..."
+              rows="5"
+              placeholder="اكتب تحديثك هنا... ماذا أنجزت؟ ما التحديات؟ ما الخطوة التالية؟"
+              maxlength="1000"
+              style="resize:none;overflow:hidden"
             ></textarea>
+            <div style="text-align:left;font-size:12px;color:var(--muted);margin-top:4px">
+              <span id="charCount">0</span>/1000
+            </div>
           </div>
 
-          <button class="btn btn-primary full-btn" type="button" onclick="sendUpdate()">
+          <button id="submitBtn" class="btn btn-primary full-btn" type="button" onclick="sendUpdate()">
+            <i class="fa-solid fa-paper-plane"></i>
             حفظ التحديث
           </button>
 
           <p id="status" class="dashboard-status muted"></p>
         </div>
 
+        <!-- قائمة التحديثات -->
         <div class="dashboard-card reveal">
           <div class="dashboard-header-row">
-            <h3>آخر التحديثات</h3>
+            <h3 style="margin:0"><i class="fa-solid fa-clock-rotate-left" style="color:var(--primary);margin-left:8px"></i>آخر التحديثات</h3>
             <button class="btn btn-secondary small-btn" type="button" onclick="loadUpdates()">
+              <i class="fa-solid fa-rotate"></i>
               تحديث
             </button>
           </div>
@@ -80,13 +101,24 @@
           <div class="divider"></div>
 
           <div id="list" class="updates-list">
-            <p class="muted">جاري التحميل...</p>
+            <p class="muted" style="text-align:center;padding:20px 0">جاري التحميل...</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <script src="script.js"></script>
+  <script>
+    /* عداد الحروف */
+    const updateEl = document.getElementById("update");
+    const charCount = document.getElementById("charCount");
+    if (updateEl && charCount) {
+      updateEl.addEventListener("input", () => {
+        charCount.textContent = updateEl.value.length;
+      });
+    }
+  </script>
 </body>
 </html>
